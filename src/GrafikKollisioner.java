@@ -97,7 +97,7 @@ public class GrafikKollisioner extends Canvas implements Runnable{
         }
         Graphics g = bs.getDrawGraphics();
 
-        update();
+        //update();
         g.setColor(Color.WHITE);
         g.fillRect(0,0,width,height);
         drawHouse(g, house.x,house.y);
