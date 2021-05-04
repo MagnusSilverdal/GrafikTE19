@@ -83,8 +83,11 @@ public class GrafikKollisioner extends Canvas implements Runnable{
         // Det här är inte rätt studsning. Dels blir det åt fel håll, dels kan mario fastna i huset.
         if (mario.intersects(house)) {
             System.out.println("Hit!");
-                marioVX = -marioVX;
+            if (mario.y > house.y+house.height-4)
                 marioVY = -marioVY;
+            else {
+                marioVX = -marioVX;
+            }
 
         }
     }
@@ -100,6 +103,9 @@ public class GrafikKollisioner extends Canvas implements Runnable{
         //update();
         g.setColor(Color.WHITE);
         g.fillRect(0,0,width,height);
+        g.setColor(Color.CYAN);
+        g.setFont(new Font("Serif", Font.BOLD, 24));
+        g.drawString("Hello world",100,20);
         drawHouse(g, house.x,house.y);
         drawTree(g, tree.x,tree.y);
         drawTree(g, 100,200);
@@ -108,6 +114,7 @@ public class GrafikKollisioner extends Canvas implements Runnable{
         drawTree(g, 130,200);
         drawTree(g, 140,200);
         drawTree(g, 150,200);
+        //Rectangle r = new Rectangle
         g.drawImage(marioimg,mario.x,mario.y,mario.width,mario.height,null);
         g.dispose();
         bs.show();
